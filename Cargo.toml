@@ -1,0 +1,8 @@
+[package]
+name = "aoc-play"
+version = "0.1.0"
+authors = ["Aamer Mohammed <aamerm@thoughtworks.com>"]
+edition = "2018"
+
+[dependencies]
+ferris-says = "0.1.1"
