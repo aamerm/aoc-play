@@ -1,24 +1,43 @@
-//use std::fs::File;
-//use std::io::{self, BufRead};
-//use std::path::Path;
+use std::io::BufReader;
+use std::io::BufRead;
+use std::io;
+use std::fs;
+
+//fn read_input_commandline() -> io::Result<()> {
+//    let mut args = std::env::args();
+//    args.next();
+//    for arg in args {
+//        let lines = file_to_vec(arg)?;
+//        println!("{:?}", lines);
+//    }
 //
-//fn lines_from_file<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-//    where
-//        P: AsRef<Path>,
-//{
-//    let file = File::open(filename)?;
-//    Ok(io::BufReader::new(file).lines())
+//    Ok(())
 //}
+
+fn read_from_file(filename: String) -> io::Result<Vec<String>> {
+    let file_in = fs::File::open(filename)?;
+    let file_reader = BufReader::new(file_in);
+    Ok(file_reader.lines().filter_map(io::Result::ok).collect())
+}
 
 pub fn spacecraft() {
     //mass of each module - inputlist
     //fuel for each module - for each item in list, divide by 3 round down, subtract 2 - inputlist.map and return newlist
     //totalfuel - newlist.reduce
 
-//   lines_from_file("input_day1.data");
-    let module_mass: Vec<i64> = vec![12, 14, 1969, 100756];
+//    let file_path = String::from("input_day1.data");
+//    let module_mass: Vec<i64> = read_from_file(file_path);
+//    match read_from_file(file_path) {
+//        Ok(data) => convert_to_int(data),
+//        Err(err) => println!("err {}", err)
+//    };
 
+    let module_mass: Vec<i64> = vec![12, 14, 1969, 100756];
     fuel_counter_upper(module_mass);
+}
+
+fn convert_to_int(data: Vec<String>) {
+    let result = data.iter().map(|x| x.parse::<i64>().unwrap()).collect::<Vec<_>>();
 }
 
 fn fuel_counter_upper(module_mass: Vec<i64>) {
