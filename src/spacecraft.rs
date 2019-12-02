@@ -47,8 +47,18 @@ fn fuel_counter_upper(module_mass: Vec<i64>) {
     println!("{}", total_fuel);
 }
 
-fn calculate_fuel(mass: i64) -> i64 {
-    (mass/3)-2
+fn calculate_fuel(mut mass: i64) -> i64 {
+    let mut done = false;
+    let mut result: i64 = 0;
+    while !done {
+        mass = (mass / 3) - 2;
+        if mass > 0 {
+            result += mass;
+        } else {
+            done = true;
+        }
+    }
+    return result;
 }
 
 //fn print_vector(v: Vec<i64>) {
