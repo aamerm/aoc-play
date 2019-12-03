@@ -1,4 +1,5 @@
-mod spacecraft;
+mod rocketequation;
+mod programalarm;
 //fn main() {
 //    println!("Hello, world!");
 //}
@@ -17,7 +18,9 @@ mod spacecraft;
 
 fn main() {
     println!("Advent of Code");
-    spacecraft::spacecraft();
+//    rocketequation::spacecraft();
+    programalarm::computer();
+
 }
 
 //https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html
