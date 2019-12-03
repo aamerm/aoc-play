@@ -8,32 +8,27 @@ pub fn computer(){
                                    2,6,123,127,1,127,5,131,2,131,6,135,1,135,2,139,1,139,9,0,
                                    99,2,14,0,0];
 
-//    let mut input = [1,9,10,3,2,3,11,0,99,30,40,50];
-//    let mut input = [1,0,0,0,99];
-//    let mut input = [2,3,0,3,99];
-//    let mut input = [2,4,4,5,99,0];
-//    let mut input = [1,1,1,4,99,5,6,0,99];
+//    let noun: usize = 12;
+//    let verb: usize = 2;
 
-//    for (pos,code) in input.iter_mut().enumerate().step_by(4) {
-//        println!("Element at position {}: {:?}", pos, code);
-//
-//        match code {
-//            1 => {
-//                input[pos+3] = input[pos+1] + input[pos+2];
-//            },
-//            2 => {
-//                input[pos+3] = input[pos+1] * input[pos+2];
-//            }
-//            99 => break,
-//            _ => continue
-//        }
-//    }
 
-//    let mut result = input.clone();
+    for noun in 0..100 {
+        for verb in 0..100 {
+            input[1] = noun;
+            input[2] = verb;
 
-    input[1] = 12;
-    input[2] = 2;
+            let output = process_data(input);
+            if output == 19690720 {
+                println!("Output: {}", output);
+                println!("{}", 100 * noun + verb);
+                break;
+            }
+        }
+    }
+}
 
+
+fn process_data(mut input: [usize;149]) -> usize {
     for pos in (0..input.len()).step_by(4) {
 
         if input[pos] == 1 {
@@ -44,8 +39,6 @@ pub fn computer(){
             break;
         }
 
-//        println!("Array: {:?}", input);
     }
-
-    println!("At pos 0: {}", input[0]);
+    return input[0];
 }
