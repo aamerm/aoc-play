@@ -1,5 +1,7 @@
 mod rocketequation;
 mod programalarm;
+mod securecontainer;
+
 //fn main() {
 //    println!("Hello, world!");
 //}
@@ -19,7 +21,8 @@ mod programalarm;
 fn main() {
     println!("Advent of Code");
 //    rocketequation::spacecraft();
-    programalarm::computer();
+//    programalarm::computer();
+    securecontainer::password_finder();
 
 }
 
